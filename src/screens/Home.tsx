@@ -3,16 +3,18 @@ import React from "react";
 import { Text } from "react-native";
 import Header from "../components/Header";
 import useUser from "../states/useUser";
+import FavoritesList from "../components/FavoritesList";
 
 export default function Home() {
   const { user } = useUser();
 
   return (
     <>
+      <StatusBar style="auto" />
       <Header />
       <Text>Home for User: {user?.name}</Text>
       <Text>Age: {user?.age}</Text>
-      <StatusBar style="auto" />
+      <FavoritesList />
     </>
   );
 }
