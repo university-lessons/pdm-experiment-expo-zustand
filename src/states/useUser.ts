@@ -1,12 +1,15 @@
 import { create } from "zustand";
 import { User } from "../types/User";
 
-interface UseUserStateProps {
+type State = {
   user: User | null;
-  setUser: (user: User | null) => void;
-}
+};
 
-const useUser = create<UseUserStateProps>()((set) => ({
+type Actions = {
+  setUser: (user: User | null) => void;
+};
+
+const useUser = create<State & Actions>()((set) => ({
   user: null,
   setUser: (user: User | null) => set(() => ({ user })),
 }));
